@@ -1,0 +1,22 @@
+{
+  "name": "@saritasa/cordova-build-utils",
+  "version": "1.0.0",
+  "description": "Cordova specific utils to prepare build of an application.",
+  "main": "index.js",
+  "keywords": [
+    "cordova",
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Saritasa/cordova-build-utils.git"
+  },
+  "author": {
+    "email": "sidorkin@saritasa.com",
+    "name": "Danil Sidorkin"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "cordova": ">=6.0.0"
+  }
+}
