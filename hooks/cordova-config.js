@@ -22,7 +22,9 @@ function setVersionAndBundleId(context) {
   const { buildNumber, versionName, versionCode } = version;
 
   // Set version for cordova app.
-  if (buildNumber != null) {
+  if (buildNumber == null) {
+    config.setVersion(versionName);
+  } else {
     config.setVersion(`${versionName}.build-${buildNumber}`);
   }
 
@@ -35,7 +37,7 @@ function setVersionAndBundleId(context) {
   if (bundleId && bundleId !== config.packageName()) {
     config.setPackageName(bundleId)
   }
-
+  
   // save changed configuration
   config.write();
 }

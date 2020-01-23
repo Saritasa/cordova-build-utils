@@ -15,7 +15,7 @@ const DEBUG_BUILD_TYPE = 'debug';
  * @returns {object}
  */
 function readConfigFromContext(context) {
-  const {opts: {options: { buildConfig, release }, projectRoot, platforms: [platform]} = {}} = context;
+  const {opts: {options: { buildConfig = 'build.json', release }, projectRoot, platforms: [platform]} = {}} = context;
 
   if (!platform) {
     throw new Error('You should specify platform');
@@ -25,11 +25,11 @@ function readConfigFromContext(context) {
     ? RELEASE_BUILD_TYPE
     : DEBUG_BUILD_TYPE;
   
-  if (!path.isAbsolute(buildConfig)) {
-    buildConfig = path.join(projectRoot, buildConfig);
-  }
+  const buildConfigPath = path.isAbsolute(buildConfig)
+    ? buildConfig
+    : path.join(projectRoot, buildConfig);
   
-  const {[platform]: {[buildType]: config = {}} = {}} = require(buildConfig) || {};
+  const {[platform]: {[buildType]: config = {}} = {}} = require(buildConfigPath) || {};
   
   return config;
 }

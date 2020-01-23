@@ -18,5 +18,8 @@
   "license": "MIT",
   "peerDependencies": {
     "cordova": ">=6.0.0"
+  },
+  "dependencies": {
+    "cordova-lib": "^9.0.1"
   }
 }
