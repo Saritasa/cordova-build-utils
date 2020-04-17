@@ -1,8 +1,11 @@
 # Cordova build tools
 
-This package contains Cordova specific build utilities
+This package contains Cordova specific build utilities.
 
-Features:
+## Tips:
+Use `hooks/setVersionAndBundleId` as "before_build" cordova hook, because on "before_prepare" build config options are not presented in a Cordova context instance on this step.
+
+# Features:
 1. [Versioning](#Versioning) - uses unified approach to set version code  and version name for both: Android and iOS.
 1. [Build number information](#Build-number-information) - adds build number info like `1.0.0.build-100` to show builds from CI in Firebase App Distribution as different builds e.g.
 1. [Set bundle ID](Set-bundle-ID) - use `bundleId` from extended Cordova build config as `id` attribute of widget in config.xml. Both sections (debug and release) can contain different bundle ID.
