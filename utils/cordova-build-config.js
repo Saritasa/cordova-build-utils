@@ -15,7 +15,7 @@ const DEBUG_BUILD_TYPE = 'debug';
  * @returns {object}
  */
 function readConfigFromContext(context) {
-  const {opts: {options: { buildConfig = 'build.json', release }, projectRoot, platforms: [platform]} = {}} = context;
+  const {opts: {options: { buildConfig = 'build.json', release } = {}, projectRoot, platforms: [platform]} = {}} = context;
 
   if (!platform) {
     throw new Error('You should specify platform');

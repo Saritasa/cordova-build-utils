@@ -1,6 +1,6 @@
 {
   "name": "@saritasa/cordova-build-utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Cordova specific utils to prepare build of an application.",
   "main": "index.js",
   "keywords": [
