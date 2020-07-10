@@ -2,7 +2,7 @@
   "name": "@saritasa/cordova-build-utils",
   "version": "1.0.2",
   "description": "Cordova specific utils to prepare build of an application.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "keywords": [
     "cordova",
     "build"
@@ -16,6 +16,13 @@
     "name": "Danil Sidorkin"
   },
   "license": "MIT",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "postbuild": "copyfiles ./src/global.d.ts ./lib --flat"
+  },
   "peerDependencies": {
     "cordova": ">=6.0.0"
   },
@@ -24,6 +31,7 @@
   },
   "devDependencies": {
     "@types/elementtree": "^0.1.0",
+    "copyfiles": "^2.3.0",
     "typescript": "^3.9.6"
   }
 }

@@ -43,7 +43,7 @@ declare module 'cordova-common/src/ConfigParser/ConfigParser' {
  * Cordova hook type.
  * See https://cordova.apache.org/docs/en/latest/guide/appdev/hooks/ for details.
  */
-declare type CordovaHookType = 'before_platformadd' | 'after_platform_add' | 'before_platform_rm' | 'after_platform_rm' | 'before_platform_ls' | 'after_platform_ls' | 'before_prepare' | 'after_prepare' | 'before_compile' | 'after_compile' | 'before_deploy' | 'before_build' | 'after_build' | 'before_emulate' | 'after_emulate' | 'before_run' | 'after_run' | 'before_serve' | 'after_serve' | 'before_clean' | 'after_clean' | 'before_plugin_add' | 'after_plugin_add' | 'before_plugin_rm' | 'after_plugin_rm' | 'before_plugin_ls' | 'after_plugin_ls' | 'before_plugin_install' | 'after_plugin_install' | 'before_plugin_uninstall';
+declare type CordovaHookType = 'before_platform_add' | 'after_platform_add' | 'before_platform_rm' | 'after_platform_rm' | 'before_platform_ls' | 'after_platform_ls' | 'before_prepare' | 'after_prepare' | 'before_compile' | 'after_compile' | 'before_deploy' | 'before_build' | 'after_build' | 'before_emulate' | 'after_emulate' | 'before_run' | 'after_run' | 'before_serve' | 'after_serve' | 'before_clean' | 'after_clean' | 'before_plugin_add' | 'after_plugin_add' | 'before_plugin_rm' | 'after_plugin_rm' | 'before_plugin_ls' | 'after_plugin_ls' | 'before_plugin_install' | 'after_plugin_install' | 'before_plugin_uninstall';
 
 /**
  * Cordova platform.
