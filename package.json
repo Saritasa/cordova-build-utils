@@ -21,5 +21,9 @@
   },
   "dependencies": {
     "cordova-lib": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/elementtree": "^0.1.0",
+    "typescript": "^3.9.6"
   }
 }

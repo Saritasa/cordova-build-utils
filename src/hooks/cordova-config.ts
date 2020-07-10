@@ -1,19 +1,18 @@
 /**
 * The module of cordova hooks to work with Cordova config.xml file.
 */
-const cordovaBuildConfig = require('../utils/cordova-build-config');
-const cordovaConfig = require('../utils/cordova-config');
-const { getApplicationVersionInfo } = require('../utils/version');
-
+import * as cordovaBuildConfig from '../utils/cordova-build-config';
+import * as cordovaConfig from '../utils/cordova-config';
+import { getApplicationVersionInfo } from '../utils/version';
 /**
  * Set version info and bundle ID in config.xml file.
  * Extract version info using "utils/version/getApplicationVersionInfo" and
  * - Set `version` to `${versionName}` or to `${versionName}.build-${buildNumber}` if build number is presented.
  * - Set android-versionCode and ios-CFBundleVersion to versionCode.
  * Extract `bundleId`, if it's presented, from Cordova build config (build.json) using "utils/cordova-build-config/readConfigFromContext"
- * @param {CordovaContext} context 
+ * @param context Cordova hook context.
  */
-function setVersionAndBundleId(context) {
+export function setVersionAndBundleId(context: CordovaHookContext): void {
   // Open Cordova config.xml
   const config = cordovaConfig.readConfig();
 
@@ -32,7 +31,7 @@ function setVersionAndBundleId(context) {
   config.doc.getroot().set('ios-CFBundleVersion', versionCode);
 
   // get bundle id from build config
-  const {bundleId} = cordovaBuildConfig.readConfigFromContext(context)
+  const { bundleId } = cordovaBuildConfig.readConfigFromContext(context)
 
   if (bundleId && bundleId !== config.packageName()) {
     config.setPackageName(bundleId)
@@ -40,8 +39,4 @@ function setVersionAndBundleId(context) {
   
   // save changed configuration
   config.write();
-}
-
-module.exports = {
-  setVersionAndBundleId,
 }

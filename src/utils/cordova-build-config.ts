@@ -3,19 +3,26 @@
  * 1. iOS: https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html#using-buildjson;
  * 2. Android https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#using-buildjson.
  */
-const path = require('path');
+import path from 'path';
 
 const RELEASE_BUILD_TYPE = 'release';
 const DEBUG_BUILD_TYPE = 'debug';
 
 /**
- * @property 
  * Read cordova build config for specific context.
- * @param {CordovaContext} context
- * @returns {object}
+ * @param context Cordova hook context.
  */
-function readConfigFromContext(context) {
-  const {opts: {options: { buildConfig = 'build.json', release } = {}, projectRoot, platforms: [platform]} = {}} = context;
+export function readConfigFromContext(context: CordovaHookContext): TargetCordovaBuildConfig {
+  const {
+    opts: {
+      options: {
+        buildConfig = 'build.json',
+        release,
+      } = {},
+      projectRoot,
+      platforms: [platform]
+    },
+  } = context;
 
   if (!platform) {
     throw new Error('You should specify platform');
@@ -29,11 +36,7 @@ function readConfigFromContext(context) {
     ? buildConfig
     : path.join(projectRoot, buildConfig);
   
-  const {[platform]: {[buildType]: config = {}} = {}} = require(buildConfigPath) || {};
+  const {[platform]: {[buildType]: config = {}} = {}} = require(buildConfigPath) || {} as TargetCordovaBuildConfig;
   
   return config;
 }
-
-module.exports = {
-  readConfigFromContext,
-};
